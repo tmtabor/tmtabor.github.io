@@ -1,130 +1,595 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
-
-  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
-
-
-
-    <link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Thorin Tabor RSS">
-
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="HandheldFriendly" content="True" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow" />
+  <title>Thorin Tabor — Staff Software Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: #e9edf2; }
+    .font-slab { font-family: 'Roboto Slab', Georgia, serif; }
+    html { scroll-behavior: smooth; }
 
-    <!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#000000">
-    <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#000000">
-    <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .bento-card {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    /* Hero */
+    #hero-card { animation-delay: 0.05s; }
+    /* About */
+    #about-card { animation-delay: 0.12s; }
+    /* Experience cards */
+    .exp-card:nth-child(1) { animation-delay: 0.10s; }
+    .exp-card:nth-child(2) { animation-delay: 0.18s; }
+    .exp-card:nth-child(3) { animation-delay: 0.26s; }
+    .exp-card:nth-child(4) { animation-delay: 0.34s; }
+    .exp-card:nth-child(5) { animation-delay: 0.42s; }
+    /* Education */
+    .edu-card:nth-child(1) { animation-delay: 0.10s; }
+    .edu-card:nth-child(2) { animation-delay: 0.18s; }
+    /* Projects */
+    .proj-card:nth-child(1) { animation-delay: 0.10s; }
+    .proj-card:nth-child(2) { animation-delay: 0.18s; }
+    /* Skills / Publications */
+    #skills-card { animation-delay: 0.10s; }
+    #pubs-card   { animation-delay: 0.10s; }
 
-    <meta name="author" content="Thorin Tabor" />
-    <meta name="description" content="" />
-<meta property="og:site_name" content="Thorin Tabor"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="Thorin Tabor"/>
-<meta property="og:description" content=""/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="."/>
-<meta property="og:image" content="images/profile.jpg">
+    /* Nav underline effect */
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: #7f1d1d;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
 
-  <title>Thorin Tabor &ndash; About Thorin</title>
+    /* Pill hover */
+    .skill-pill:hover {
+      background-color: #fff1f2;
+      border-color: #fecaca;
+      color: #7f1d1d;
+      transition: all 0.2s ease;
+    }
+    /* Offset anchors for sticky nav */
+    section[id] { scroll-margin-top: 4.5rem; }
+  </style>
 </head>
-<body>
-  <aside>
-    <div>
-      <a href=".">
-        <img src="images/profile.jpg" alt="Thorin Tabor" title="Thorin Tabor">
+<body class="text-slate-900 antialiased">
+
+  <!-- ===================== STICKY NAV ===================== -->
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+      <!-- Name / logo -->
+      <a href="#top" class="font-slab font-semibold text-slate-900 tracking-wide text-sm hover:text-red-900 transition-colors duration-200">
+        Thorin Tabor
       </a>
-      <h1><a href=".">Thorin Tabor</a></h1>
-
-<p>Software Engineer, Gamer Geek</p>
-      <nav>
-        <ul class="list">
-          <li><a href="./index.html">About Thorin</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./cv.html">Curriculum Vitae</a></li>
-          <li><a href="./games.html">Games</a></li>
-          <li><a href="./software.html">Software</a></li>
-
-        </ul>
-      </nav>
-
-      <ul class="social">
-        <li><a class="sc-github" href="https://github.com/tmtabor" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/thorin-tabor-99223627" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-        <li><a class="sc-stack-overflow" href="http://stackoverflow.com/users/4966978/thorin-tabor" target="_blank"><i class="fa fa-stack-overflow"></i></a></li>
-        <li><a class="sc-rss" href="feeds/all.rss.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
-      </ul>
+      <!-- Anchor links (hidden on mobile) -->
+      <div class="hidden sm:flex items-center gap-5 text-[0.7rem] font-semibold text-slate-500 uppercase tracking-widest">
+        <a href="#about"        class="nav-link hover:text-slate-800 transition-colors duration-200">About</a>
+        <a href="#experience"   class="nav-link hover:text-slate-800 transition-colors duration-200">Experience</a>
+        <a href="#education"    class="nav-link hover:text-slate-800 transition-colors duration-200">Education</a>
+        <a href="#projects"     class="nav-link hover:text-slate-800 transition-colors duration-200">Projects</a>
+        <a href="#skills"       class="nav-link hover:text-slate-800 transition-colors duration-200">Skills</a>
+        <a href="#publications" class="nav-link hover:text-slate-800 transition-colors duration-200">Publications</a>
+      </div>
+      <!-- Social icons -->
+      <div class="flex items-center gap-3">
+        <a href="mailto:thorin@tmtabor.io" aria-label="Email"
+           class="text-slate-400 hover:text-red-900 transition-colors duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/thorin-tabor-99223627/" target="_blank" rel="noopener" aria-label="LinkedIn"
+           class="text-slate-400 hover:text-red-900 transition-colors duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239
+            5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966
+            0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784
+            1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.059-1.864-3.059-1.865
+            0-2.151 1.456-2.151 2.961v5.702h-3v-10h2.881v1.367h.041c.401-.761
+            1.381-1.563 2.844-1.563 3.042 0 3.604 2.002 3.604 4.604v5.592z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/tmtabor" target="_blank" rel="noopener" aria-label="GitHub"
+           class="text-slate-400 hover:text-red-900 transition-colors duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.8 8.207
+            11.387.6.11.793-.26.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729
+            1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931
+            0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0
+            1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005
+            2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242
+            2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807
+            5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0
+            .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386
+            0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
     </div>
-  </aside>
-  <main>
-    <nav>
-      <a href=".">Home</a>
+  </nav>
 
-      <a href="contact.html">Contact</a>
-      <a href="cv.html">CV</a>
-      <a href="games.html">Games</a>
-      <a href="software.html">Software</a>
+  <!-- ===================== MAIN ===================== -->
+  <main id="top" class="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-6">
 
+    <!-- ── HERO ── -->
+    <section id="hero-card" class="bento-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
+      <div class="flex flex-col sm:flex-row gap-8 items-center sm:items-start">
+        <!-- Photo -->
+        <div class="flex-shrink-0">
+          <img src="jupytercon.jpg" alt="Thorin Tabor"
+               class="w-36 h-36 rounded-2xl object-cover object-center border border-slate-200 shadow-sm" />
+        </div>
+        <!-- Text -->
+        <div class="text-center sm:text-left">
+          <p class="text-[0.65rem] font-semibold text-slate-400 uppercase tracking-[0.2em] mb-2">He / Him</p>
+          <h1 class="font-slab font-bold text-4xl sm:text-5xl tracking-tight text-slate-900 leading-none">
+            Thorin Tabor
+          </h1>
+          <p class="mt-3 text-[0.9375rem] text-slate-600 leading-relaxed max-w-xl">
+            Staff Software Engineer &nbsp;&middot;&nbsp; Agentic AI, MCP &amp; RAG
+          </p>
+          <p class="mt-1 text-[0.9375rem] text-slate-600 leading-relaxed max-w-xl">
+            UC San Diego &amp; Broad Institute of MIT and Harvard
+          </p>
+          <p class="mt-1 text-sm text-slate-400">San Diego, California, United States</p>
+          <!-- Links -->
+          <div class="mt-5 flex items-center gap-5 justify-center sm:justify-start">
+            <a href="mailto:thorin@tmtabor.io"
+               class="inline-flex items-center gap-1.5 text-xs font-semibold text-red-900 hover:underline">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
+              </svg>
+              thorin@tmtabor.io
+            </a>
+            <a href="https://www.linkedin.com/in/thorin-tabor-99223627/" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-1.5 text-xs font-semibold text-red-900 hover:underline">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239
+                5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966
+                0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784
+                1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.059-1.864-3.059-1.865
+                0-2.151 1.456-2.151 2.961v5.702h-3v-10h2.881v1.367h.041c.401-.761
+                1.381-1.563 2.844-1.563 3.042 0 3.604 2.002 3.604 4.604v5.592z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/tmtabor" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-1.5 text-xs font-semibold text-red-900 hover:underline">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.8 8.207
+                11.387.6.11.793-.26.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729
+                1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931
+                0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0
+                1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005
+                2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242
+                2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807
+                5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0
+                .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386
+                0-6.627-5.373-12-12-12z"/>
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <a href="feeds/all.rss.xml">RSS</a>
-    </nav>
+    <!-- ── ABOUT ── -->
+    <section id="about">
+      <h2 class="font-slab font-semibold text-2xl tracking-wide text-slate-900 mb-4">About</h2>
+      <div id="about-card" class="bento-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
+        <div class="space-y-4 text-[0.9375rem] text-slate-700 leading-relaxed">
+          <p>I have been coding recreationally since grade school. Professionally, I've spent nineteen years turning that into a career, most recently as a Staff Engineer at UC San Diego, where I build agentic AI systems using RAG, MCP and LLM orchestration for scientific research. Academically, I have a master's degree in computer science.</p>
+          <p>Along the way I've co-founded three companies, including a Google Startups-backed SaaS, contributed to a range of open source projects and co-authored seven peer-reviewed publications. In recent years my focus has narrowed to the hard parts of applied AI: making agents reliable, keeping hallucinations out of high-stakes domains and building infrastructure that holds up in production.</p>
+          <p>Recreationally, I'm still at it.</p>
+        </div>
+      </div>
+    </section>
 
-<article>
-  <header>
-    <h1 id="about-thorin">About Thorin</h1>
-  </header>
-  <div>
-    <p>I am a software engineer at the <a href="http://www.broadinstitute.org/">Broad Institute of MIT and Harvard</a> 
-and currently a visiting scholar at the <a href="http://som.ucsd.edu/">University of California, San Diego</a>.
-I work on various open source bioinformatic tools.</p>
-<p>In my professional life, I am the principal developer of <a href="http://genepattern-notebook.org">GenePattern Notebook</a> 
-and also write code for the <a href="http://genepattern.org">GenePattern</a> server. Additionally, I 
-have worked on <a href="http://genomespace.org">GenomeSpace</a> and the <a href="http://jupyter.org">Jupyter</a> 
-integration of <a href="http://igv.org">Integrative Genomics Viewer (IGV)</a>. I primarily program in 
-Python, JavaScript and Java, but have experience with a variety of other languages as well.</p>
-<p>In my spare time, I write and design tabletop games, mostly of the roleplaying variety. These are published by 
-<a href="http://www.tabcreations.com">Tab Creations LLC</a>, of which I am part-owner. Games I have written, crowdfunded and 
-published include <a href="http://www.tabcreations.com/site/Shadows_Over_Sol">Shadows Over Sol</a>, 
-<a href="http://www.tabcreations.com/site/Against_the_Dark_Yogi">Against the Dark Yogi</a> and the upcoming 
-<a href="http://www.tabcreations.com/signup/4/">Dime Adventures</a>. I have seen evidence of my games being played on four continents.</p>
-<p>I was chairman of the 2015 <a href="http://2015.festivalofthelarps.com/">Festival of the LARPs</a> convention, and in the 
-past I have worked with the board of <a href="http://www.interactiveliterature.org/NEIL/">New England Interactive Literature</a>, 
-helping organize their annual <a href="http://www.interactiveliterature.org/NEIL/interconConventions.html">Intercon</a> convention.</p>
-  </div>
-</article>
+    <!-- ── EXPERIENCE ── -->
+    <section id="experience">
+      <h2 class="font-slab font-semibold text-2xl tracking-wide text-slate-900 mb-4">Experience</h2>
+      <div class="space-y-4">
 
-    <footer>
-<p>&copy; 2016 Thorin Tabor - Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - Ply theme by Thorin Tabor, based on the <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p>
-    </footer>
+        <!-- UCSD -->
+        <div class="bento-card exp-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
+          <p class="text-sm font-bold text-red-900 uppercase tracking-widest mb-0.5">
+            University of California, San Diego
+          </p>
+          <p class="text-xs text-red-900 mb-4">Nov 2016 – Present &nbsp;&middot;&nbsp; La Jolla, CA</p>
+          <h3 class="font-slab font-semibold text-xl text-slate-900 mb-4">Staff Software Engineer</h3>
+          <ul class="space-y-3 text-[0.9rem] text-slate-700 leading-relaxed">
+            <li class="pl-4 border-l-2 border-slate-100">Principal architect and lead engineer for the GenePattern AI and Notebook ecosystem at UC San Diego.</li>
+            <li class="pl-4 border-l-2 border-slate-100">Architected and deployed GenePattern Copilot, a RAG-based agentic AI assistant for GenePattern and bioinformatics research. Built the initial system using LangChain and LangGraph, then migrated to Pydantic AI for its superior structured output handling and data validation.</li>
+            <li class="pl-4 border-l-2 border-slate-100">Engineered an MCP server wrapping the GenePattern REST API, enabling Copilot to agentically launch jobs, retrieve results and explore analyses on the user's behalf.</li>
+            <li class="pl-4 border-l-2 border-slate-100">Designed and built the GenePattern AI Module Toolkit, a multi-agent pipeline that automates wrapping and deploying bioinformatics tools as GenePattern modules. Uses a hierarchical agent architecture with a supervisor-managed escalation loop across researcher, planner and six artifact-specific agents. Increased GenePattern module production by ~500%.</li>
+            <li class="pl-4 border-l-2 border-slate-100">Fine-tuned six Qwen3.5-9B LoRAs — one per artifact type — on LLM-generated, hand-curated synthetic training data at the San Diego Supercomputer Center (SDSC).</li>
+            <li class="pl-4 border-l-2 border-slate-100">Led containerization and cloud orchestration via Docker and AWS. Contributed to the development of MSigDB and IGV. Continued architectural leadership of g2nb and GenePattern Notebook throughout.</li>
+          </ul>
+          <div class="mt-5 flex flex-wrap gap-1.5">
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Python</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Agentic AI</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Large Language Models (LLM)</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Retrieval-Augmented Generation (RAG)</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Model Context Protocol (MCP)</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Pydantic AI</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">LangChain</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Low-Rank Adaptation (LoRA)</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Vector Databases</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Embeddings</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Synthetic Data Generation</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Prompt Engineering</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Machine Learning</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Software Architecture</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Django</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Docker</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">AWS</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Jupyter</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Linux</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Cloud Computing</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">JavaScript</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">SQL</span>
+          </div>
+        </div>
+
+        <!-- Broad Institute -->
+        <div class="bento-card exp-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
+          <p class="text-sm font-bold text-red-900 uppercase tracking-widest mb-0.5">
+            Broad Institute of MIT and Harvard
+          </p>
+          <p class="text-xs text-red-900 mb-5">15 yrs 3 mos &nbsp;&middot;&nbsp; Cambridge, MA</p>
+
+          <!-- Sub-role: Collaborating Scientist -->
+          <div class="mb-6 pb-6 border-b border-slate-100">
+            <p class="text-xs text-red-900 mb-1">Nov 2016 – Present &nbsp;&middot;&nbsp; 9 yrs 5 mos</p>
+            <h3 class="font-slab font-semibold text-xl text-slate-900 mb-3">Collaborating Scientist</h3>
+            <p class="text-[0.9rem] text-slate-700 leading-relaxed pl-4 border-l-2 border-slate-100">
+              Joint academic appointment alongside my primary role at UCSD, facilitating cross-institutional open-source development. Lead architect of g2nb, a JupyterLab implementation expanding GenePattern Notebook to integrate Galaxy, Globus and IGV alongside GenePattern.
+            </p>
+          </div>
+
+          <!-- Sub-role: Senior Software Engineer -->
+          <div>
+            <p class="text-xs text-red-900 mb-1">Jan 2011 – Nov 2016 &nbsp;&middot;&nbsp; 5 yrs 11 mos</p>
+            <h3 class="font-slab font-semibold text-xl text-slate-900 mb-3">Senior Software Engineer</h3>
+            <ul class="space-y-3 text-[0.9rem] text-slate-700 leading-relaxed">
+              <li class="pl-4 border-l-2 border-slate-100">Contributed to a suite of open-source research tools used by over 463k researchers across thousands of academic institutions worldwide.</li>
+              <li class="pl-4 border-l-2 border-slate-100">Took full architectural ownership of GenePattern Notebook, a Jupyter-based frontend that renders interactive GenePattern tool interfaces as native notebook widgets. Collaborated directly with the core Jupyter development team, traveling to Berkeley to work with them in person. Built the JupyterHub integration and developed jupyter-wysiwyg, an open-source WYSIWYG markdown editor for Jupyter later adopted by SUSE Linux and distributed via its YaST package manager.</li>
+              <li class="pl-4 border-l-2 border-slate-100">Extended the core GenePattern platform — a web-based system exposing hundreds of genomic, bioinformatic and machine learning tools to non-programming researchers. Created its REST API, wrote its Python client library and revised its AJAX frontend. Built its GenomeSpace integration connecting GenePattern to Galaxy, IGV, Genomica and Cytoscape.</li>
+            </ul>
+          </div>
+          <div class="mt-5 flex flex-wrap gap-1.5">
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Python</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Java</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Jupyter</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Machine Learning</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Software Architecture</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Open-Source Software</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Docker</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Linux</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Cloud Computing</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">TypeScript</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Software Engineering</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">SQL</span>
+          </div>
+        </div>
+
+        <!-- SkyPilot -->
+        <div class="bento-card exp-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
+          <p class="text-sm font-bold text-red-900 uppercase tracking-widest mb-0.5">SkyPilot</p>
+          <p class="text-xs text-red-900 mb-4">Apr 2025 – Present &nbsp;&middot;&nbsp; Remote</p>
+          <h3 class="font-slab font-semibold text-xl text-slate-900 mb-4">Founder &amp; Principal Engineer</h3>
+          <ul class="space-y-3 text-[0.9rem] text-slate-700 leading-relaxed">
+            <li class="pl-4 border-l-2 border-slate-100">Solo-founded, built and launched a social media scheduling and analytics SaaS for Bluesky and Threads, selected for the Google Startups Program. Engineered the full stack in Python and Django with Celery and RabbitMQ handling distributed task execution across multiple worker nodes.</li>
+            <li class="pl-4 border-l-2 border-slate-100">Built an MCP server wrapping the SkyPilot API, enabling AI agents to schedule posts, manage queues, upload media and retrieve analytics programmatically. Integrated LLM inference for post inspiration and content automation, and ML-based analytics for hashtag performance, engagement trends, optimal post timing and audience growth projections. Profitable every month since launch.</li>
+          </ul>
+          <div class="mt-5 flex flex-wrap gap-1.5">
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Python</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Django</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Celery</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">RabbitMQ</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Agentic AI</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">AT Protocol</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Software as a Service (SaaS)</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Software Architecture</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Docker</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">JavaScript</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Software Engineering</span>
+          </div>
+        </div>
+
+        <!-- Tab Creations -->
+        <div class="bento-card exp-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
+          <p class="text-sm font-bold text-red-900 uppercase tracking-widest mb-0.5">Tab Creations</p>
+          <p class="text-xs text-red-900 mb-4">Jul 2013 – Present &nbsp;&middot;&nbsp; Remote</p>
+          <h3 class="font-slab font-semibold text-xl text-slate-900 mb-4">Founder and Creative Director</h3>
+          <ul class="space-y-3 text-[0.9rem] text-slate-700 leading-relaxed">
+            <li class="pl-4 border-l-2 border-slate-100">Co-founded an independent tabletop roleplaying game publisher, personally designing and writing four complete games and over 100 published products. Managed the full production pipeline — budgeting, crowdfunding, freelance artists, editors and graphic designers — across 17 successful campaigns raising $135k total.</li>
+            <li class="pl-4 border-l-2 border-slate-100">Shadows Over Sol, the company's flagship game, has been licensed for a Portuguese edition and an audio drama produced by GMB Japan. Also designed and built the company website and Foundry VTT integration.</li>
+          </ul>
+          <div class="mt-5 flex flex-wrap gap-1.5">
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Cross-Functional Leadership</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Project Management</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Product Management</span>
+          </div>
+        </div>
+
+        <!-- Lime Brokerage -->
+        <div class="bento-card exp-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
+          <p class="text-sm font-bold text-red-900 uppercase tracking-widest mb-0.5">Lime Brokerage LLC</p>
+          <p class="text-xs text-red-900 mb-4">May 2007 – Oct 2010 &nbsp;&middot;&nbsp; 3 yrs 6 mos &nbsp;&middot;&nbsp; Waltham, MA</p>
+          <h3 class="font-slab font-semibold text-xl text-slate-900 mb-4">Software Engineer</h3>
+          <p class="text-[0.9rem] text-slate-700 leading-relaxed pl-4 border-l-2 border-slate-100">
+            Contributed to the trading portal at a high-frequency brokerage platform that processed over 1 billion orders in a single day during the 2008 financial crisis — roughly 9% of total US equity volume that day. Engineered performance optimizations deep in the JSF request lifecycle to maximize throughput with update rates of up to 50 times per second. Took primary ownership of the order book component following a migration to Adobe Air.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-1.5">
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">JavaScript</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Java</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Linux</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">SQL</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Software Engineering</span>
+          </div>
+        </div>
+
+      </div><!-- /space-y-4 -->
+    </section>
+
+    <!-- ── EDUCATION ── -->
+    <section id="education">
+      <h2 class="font-slab font-semibold text-2xl tracking-wide text-slate-900 mb-4">Education</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+        <div class="bento-card edu-card bg-white border border-slate-200 rounded-2xl p-8">
+          <p class="text-sm font-bold text-red-900 uppercase tracking-widest mb-0.5">Brandeis University</p>
+          <p class="text-xs text-red-900 mb-4">2006 – 2007</p>
+          <h3 class="font-slab font-semibold text-xl text-slate-900">Master's Degree</h3>
+          <p class="text-sm text-slate-500 mt-1">Computer Science</p>
+        </div>
+
+        <div class="bento-card edu-card bg-white border border-slate-200 rounded-2xl p-8">
+          <p class="text-sm font-bold text-red-900 uppercase tracking-widest mb-0.5">Brandeis University</p>
+          <p class="text-xs text-red-900 mb-4">2002 – 2006</p>
+          <h3 class="font-slab font-semibold text-xl text-slate-900">Bachelor's Degree</h3>
+          <p class="text-sm text-slate-500 mt-1">Computer Science</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PROJECTS ── -->
+    <section id="projects">
+      <h2 class="font-slab font-semibold text-2xl tracking-wide text-slate-900 mb-4">Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+        <!-- GenePattern AI Module Toolkit -->
+        <div class="bento-card proj-card bg-white border border-slate-200 rounded-2xl p-8 flex flex-col">
+          <div class="flex-1">
+            <p class="text-sm font-bold text-red-900 uppercase tracking-widest mb-0.5">University of California, San Diego</p>
+            <p class="text-xs text-red-900 mb-3">Sep 2025 – Present</p>
+            <h3 class="font-slab font-semibold text-xl text-slate-900 mb-3">
+              <a href="https://github.com/genepattern/module-toolkit" target="_blank" rel="noopener"
+                 class="group hover:text-red-900 transition-colors duration-200">
+                GenePattern AI Module Toolkit
+                <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+              </a>
+            </h3>
+            <p class="text-[0.9rem] text-slate-700 leading-relaxed">
+              Multi-agent AI pipeline that automates wrapping and deploying bioinformatics CLI tools as production-ready GenePattern modules. Point it at a tool's git repository, documentation and example data, then a hierarchical pipeline of researcher, planner and six artifact-specific agents handles the rest, coordinated by a supervisor agent with structured escalation. Fine-tuned on six Qwen3.5-9B LoRAs trained on synthetic data at the San Diego Supercomputer Center. Increased GenePattern module production by ~500%.
+            </p>
+          </div>
+          <div class="mt-5 flex flex-wrap gap-1.5">
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Agentic AI</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">LoRA</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Pydantic AI</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Python</span>
+          </div>
+        </div>
+
+        <!-- GenePattern Copilot -->
+        <div class="bento-card proj-card bg-white border border-slate-200 rounded-2xl p-8 flex flex-col">
+          <div class="flex-1">
+            <p class="text-sm font-bold text-red-900 uppercase tracking-widest mb-0.5">University of California, San Diego</p>
+            <p class="text-xs text-red-900 mb-3">Apr 2025 – Present</p>
+            <h3 class="font-slab font-semibold text-xl text-slate-900 mb-3">
+              <a href="https://github.com/genepattern/copilot" target="_blank" rel="noopener"
+                 class="group hover:text-red-900 transition-colors duration-200">
+                GenePattern Copilot
+                <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+              </a>
+            </h3>
+            <p class="text-[0.9rem] text-slate-700 leading-relaxed">
+              Agentic AI assistant for GenePattern and bioinformatics research, combining RAG-based question answering with direct platform control. Built on an MCP server wrapping the GenePattern REST API, enabling the agent to launch jobs, retrieve results and explore analyses on the user's behalf. Migrated from LangChain/LangGraph to Pydantic AI for superior structured output handling and reliability.
+            </p>
+          </div>
+          <div class="mt-5 flex flex-wrap gap-1.5">
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">RAG</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">MCP</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Pydantic AI</span>
+            <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">LangChain</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SKILLS ── -->
+    <section id="skills">
+      <h2 class="font-slab font-semibold text-2xl tracking-wide text-slate-900 mb-4">Skills</h2>
+      <div id="skills-card" class="bento-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Python</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Agentic AI</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Model Context Protocol (MCP)</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Retrieval-Augmented Generation (RAG)</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Low-Rank Adaptation (LoRA)</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Django</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Pydantic AI</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">LangChain</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Docker</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Jupyter</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Amazon Web Services (AWS)</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Open-Source Software</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Celery</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">RabbitMQ</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">SQL</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Linux</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Cloud Computing</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">JavaScript</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">TypeScript</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Java</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Software as a Service (SaaS)</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Leadership</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Product Management</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Cross-Functional Leadership</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Project Management</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">Software Engineering</span>
+          <span class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1 cursor-default">AT Protocol</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PUBLICATIONS ── -->
+    <section id="publications">
+      <h2 class="font-slab font-semibold text-2xl tracking-wide text-slate-900 mb-4">Publications</h2>
+      <div id="pubs-card" class="bento-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
+        <ol class="space-y-0">
+
+          <li class="py-5 border-b border-slate-100 first:pt-0 last:border-0 last:pb-0">
+            <a href="https://www.fortunejournals.com/articles/genomics-to-notebook-g2nb-extending-the-electronic-notebook-to-address-the-challenges-of-bioinformatics-analysis.html"
+               target="_blank" rel="noopener"
+               class="group text-[0.9375rem] font-medium text-slate-900 leading-snug hover:text-red-900 transition-colors duration-200">
+              Genomics to Notebook (g2nb): extending the electronic notebook to address the challenges of bioinformatics analysis
+              <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+            </a>
+            <p class="text-xs text-red-900 mt-1.5">Journal of Bioinformatics Systems Biology &nbsp;&middot;&nbsp; Dec 17, 2024</p>
+          </li>
+
+          <li class="py-5 border-b border-slate-100 last:border-0 last:pb-0">
+            <a href="https://www.biorxiv.org/content/10.1101/2024.05.06.592768v1.abstract"
+               target="_blank" rel="noopener"
+               class="group text-[0.9375rem] font-medium text-slate-900 leading-snug hover:text-red-900 transition-colors duration-200">
+              AmpliconSuite: an end-to-end workflow for analyzing focal amplifications in cancer genomes
+              <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+            </a>
+            <p class="text-xs text-red-900 mt-1.5">bioRxiv &nbsp;&middot;&nbsp; May 6, 2024</p>
+          </li>
+
+          <li class="py-5 border-b border-slate-100 last:border-0 last:pb-0">
+            <a href="https://ascopubs.org/doi/10.1200/CCI.19.00125"
+               target="_blank" rel="noopener"
+               class="group text-[0.9375rem] font-medium text-slate-900 leading-snug hover:text-red-900 transition-colors duration-200">
+              Imaging-AMARETTO: An Imaging Genomics Software Tool to Interrogate Multiomics Networks for Relevance to Radiography and Histopathology Imaging Biomarkers of Clinical Outcomes.
+              <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+            </a>
+            <p class="text-xs text-red-900 mt-1.5">JCO Clinical Cancer Informatics &nbsp;&middot;&nbsp; May 8, 2020</p>
+          </li>
+
+          <li class="py-5 border-b border-slate-100 last:border-0 last:pb-0">
+            <a href="https://doi.org/10.12688/f1000research.15830.2"
+               target="_blank" rel="noopener"
+               class="group text-[0.9375rem] font-medium text-slate-900 leading-snug hover:text-red-900 transition-colors duration-200">
+              An accessible, interactive GenePattern Notebook for analysis and exploration of single-cell transcriptomic data
+              <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+            </a>
+            <p class="text-xs text-red-900 mt-1.5">F1000 Research &nbsp;&middot;&nbsp; May 29, 2019</p>
+          </li>
+
+          <li class="py-5 border-b border-slate-100 last:border-0 last:pb-0">
+            <a href="https://doi.org/10.1016/j.cels.2017.07.003"
+               target="_blank" rel="noopener"
+               class="group text-[0.9375rem] font-medium text-slate-900 leading-snug hover:text-red-900 transition-colors duration-200">
+              The GenePattern Notebook Environment
+              <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+            </a>
+            <p class="text-xs text-red-900 mt-1.5">Cell Systems &nbsp;&middot;&nbsp; Aug 23, 2017</p>
+          </li>
+
+          <li class="py-5 border-b border-slate-100 last:border-0 last:pb-0">
+            <a href="https://doi.org/10.1158/1538-7445.AM2016-5273"
+               target="_blank" rel="noopener"
+               class="group text-[0.9375rem] font-medium text-slate-900 leading-snug hover:text-red-900 transition-colors duration-200">
+              GenePattern Notebooks: an integrative analytical environment for cancer research
+              <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+            </a>
+            <p class="text-xs text-red-900 mt-1.5">Cancer Research &nbsp;&middot;&nbsp; Jul 1, 2016</p>
+          </li>
+
+          <li class="py-5 last:pb-0">
+            <a href="https://doi.org/10.1158/1538-7445.AM2013-5141"
+               target="_blank" rel="noopener"
+               class="group text-[0.9375rem] font-medium text-slate-900 leading-snug hover:text-red-900 transition-colors duration-200">
+              GenomeSpace: An environment for frictionless bioinformatics
+              <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+            </a>
+            <p class="text-xs text-red-900 mt-1.5">Cancer Research &nbsp;&middot;&nbsp; Aug 1, 2013</p>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
   </main>
 
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="max-w-5xl mx-auto px-4 sm:px-6 py-10 mt-4 border-t border-slate-200">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+      <span class="font-slab tracking-wide">Thorin Tabor</span>
+      <div class="flex items-center gap-5">
+        <a href="mailto:thorin@tmtabor.io"
+           class="hover:text-red-900 transition-colors duration-200">thorin@tmtabor.io</a>
+        <a href="https://www.linkedin.com/in/thorin-tabor-99223627/" target="_blank" rel="noopener"
+           class="hover:text-red-900 transition-colors duration-200">LinkedIn</a>
+        <a href="https://github.com/tmtabor" target="_blank" rel="noopener"
+           class="hover:text-red-900 transition-colors duration-200">GitHub</a>
+      </div>
+    </div>
+  </footer>
 
-
-
-
-<script type="application/ld+json">
-{
-  "@context" : "http://schema.org",
-  "@type" : "Blog",
-  "name": " Thorin Tabor ",
-  "url" : ".",
-  "image": "images/profile.jpg",
-  "description": ""
-}
-</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
