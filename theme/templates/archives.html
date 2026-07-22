@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Blog — Thorin Tabor{% endblock %}
+{% block content %}
+
+<section id="blog">
+  <h2 class="font-slab font-semibold text-2xl tracking-wide text-slate-900 mb-4">Blog</h2>
+  <div class="space-y-4">
+    {% if articles %}
+      {% for article in articles %}
+      <div class="bento-card post-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
+        <p class="text-xs text-red-900 mb-2">{{ article.locale_date }}</p>
+        <h3 class="font-slab font-semibold text-xl text-slate-900 mb-2">
+          <a href="{{ SITEURL }}/{{ article.url }}" class="hover:text-red-900 transition-colors duration-200">
+            {{ article.title }}
+          </a>
+        </h3>
+        {% if article.summary %}
+        <div class="text-[0.9rem] text-slate-700 leading-relaxed">{{ article.summary }}</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    {% else %}
+    <div class="bento-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
+      <p class="text-[0.9375rem] text-slate-600">No posts yet — check back soon.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

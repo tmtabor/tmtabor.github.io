@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Thorin Tabor — Staff Software Engineer{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: #e9edf2; }
+    .font-slab { font-family: 'Roboto Slab', Georgia, serif; }
+    html { scroll-behavior: smooth; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .bento-card {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    /* Hero */
+    #hero-card { animation-delay: 0.05s; }
+    /* About */
+    #about-card { animation-delay: 0.12s; }
+    /* Experience cards */
+    .exp-card:nth-child(1) { animation-delay: 0.10s; }
+    .exp-card:nth-child(2) { animation-delay: 0.18s; }
+    .exp-card:nth-child(3) { animation-delay: 0.26s; }
+    .exp-card:nth-child(4) { animation-delay: 0.34s; }
+    .exp-card:nth-child(5) { animation-delay: 0.42s; }
+    /* Education */
+    .edu-card:nth-child(1) { animation-delay: 0.10s; }
+    .edu-card:nth-child(2) { animation-delay: 0.18s; }
+    /* Projects */
+    .proj-card:nth-child(1) { animation-delay: 0.10s; }
+    .proj-card:nth-child(2) { animation-delay: 0.18s; }
+    /* Skills / Publications */
+    #skills-card { animation-delay: 0.10s; }
+    #pubs-card   { animation-delay: 0.10s; }
+    /* Blog cards */
+    .post-card:nth-child(1) { animation-delay: 0.10s; }
+    .post-card:nth-child(2) { animation-delay: 0.16s; }
+    .post-card:nth-child(3) { animation-delay: 0.22s; }
+    .post-card:nth-child(4) { animation-delay: 0.28s; }
+    .post-card:nth-child(5) { animation-delay: 0.34s; }
+
+    /* Nav underline effect */
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: #7f1d1d;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Pill hover */
+    .skill-pill:hover {
+      background-color: #fff1f2;
+      border-color: #fecaca;
+      color: #7f1d1d;
+      transition: all 0.2s ease;
+    }
+    /* Offset anchors for sticky nav */
+    section[id] { scroll-margin-top: 4.5rem; }
+
+    /* Article body typography */
+    .article-body a { color: #7f1d1d; text-decoration: none; }
+    .article-body a:hover { text-decoration: underline; }
+    .article-body h1, .article-body h2, .article-body h3 { font-family: 'Roboto Slab', Georgia, serif; }
+  </style>
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="text-slate-900 antialiased">
+
+  <!-- ===================== STICKY NAV ===================== -->
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+      <!-- Name / logo -->
+      <a href="{{ SITEURL }}/" class="font-slab font-semibold text-slate-900 tracking-wide text-sm hover:text-red-900 transition-colors duration-200">
+        Thorin Tabor
+      </a>
+      <!-- Nav links -->
+      <div class="hidden sm:flex items-center gap-6 text-[0.7rem] font-semibold text-slate-500 uppercase tracking-widest">
+        <a href="{{ SITEURL }}/bio/" class="nav-link hover:text-slate-800 transition-colors duration-200">Bio</a>
+        <a href="{{ SITEURL }}/blog/" class="nav-link hover:text-slate-800 transition-colors duration-200">Blog</a>
+      </div>
+      <!-- Social icons -->
+      <div class="flex items-center gap-3">
+        {% include "partials/social_icons.html" %}
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== MAIN ===================== -->
+  <main id="top" class="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-6">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="max-w-5xl mx-auto px-4 sm:px-6 py-10 mt-4 border-t border-slate-200">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+      <span class="font-slab tracking-wide">&copy; {{ current_year }} Thorin Tabor</span>
+      <div class="flex items-center gap-5">
+        <a href="mailto:thorin@tmtabor.io"
+           class="hover:text-red-900 transition-colors duration-200">thorin@tmtabor.io</a>
+        <a href="https://www.linkedin.com/in/thorin-tabor-99223627/" target="_blank" rel="noopener"
+           class="hover:text-red-900 transition-colors duration-200">LinkedIn</a>
+        <a href="https://bsky.app/profile/tmtabor.io" target="_blank" rel="noopener"
+           class="hover:text-red-900 transition-colors duration-200">Bluesky</a>
+        <a href="https://github.com/tmtabor" target="_blank" rel="noopener"
+           class="hover:text-red-900 transition-colors duration-200">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
