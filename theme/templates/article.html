@@ -1,5 +1,26 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title }} — Thorin Tabor{% endblock %}
+{% block canonical_path %}{{ article.url }}{% endblock %}
+{% block meta_description %}{{ article.summary|striptags|trim }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block extra_meta %}
+<meta property="article:published_time" content="{{ article.date.isoformat() }}" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ article.title|tojson }},
+  "datePublished": "{{ article.date.isoformat() }}",
+  "url": "{{ SITEURL }}/{{ article.url }}",
+  "description": {{ article.summary|striptags|trim|tojson }},
+  "author": {
+    "@type": "Person",
+    "name": "Thorin Tabor",
+    "url": "{{ SITEURL }}/bio/"
+  }
+}
+</script>
+{% endblock %}
 {% block content %}
 
 <a href="{{ SITEURL }}/blog/" class="nav-link text-xs font-semibold text-red-900 uppercase tracking-widest">&larr; Back to Blog</a>
@@ -9,9 +30,16 @@
   <h1 class="font-slab font-bold text-3xl sm:text-4xl tracking-tight text-slate-900 leading-tight mb-6">
     {{ article.title }}
   </h1>
-  <div class="article-body prose prose-slate max-w-none prose-headings:font-slab">
+  <div class="article-body prose prose-slate max-w-none prose-headings:font-slab prose-code:before:content-none prose-code:after:content-none">
     {{ article.content }}
   </div>
+  {% if article.tags %}
+  <div class="mt-8 pt-6 border-t border-slate-100 flex flex-wrap gap-1.5">
+    {% for tag in article.tags %}
+    <a href="{{ SITEURL }}/{{ tag.url }}" class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5">{{ tag }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
 </article>
 
 {% endblock %}

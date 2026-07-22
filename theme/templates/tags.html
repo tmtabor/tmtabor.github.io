@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Tags — Thorin Tabor{% endblock %}
+{% block canonical_path %}tags/{% endblock %}
+{% block meta_description %}Browse posts by topic — agentic AI, MCP, RAG, and more.{% endblock %}
+{% block content %}
+
+<section id="tags">
+  <h2 class="font-slab font-semibold text-2xl tracking-wide text-slate-900 mb-4">Tags</h2>
+  <div class="bento-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
+    <div class="flex flex-wrap gap-2">
+      {% for tag, tag_articles in tags|sort(attribute="0") %}
+      <a href="{{ SITEURL }}/{{ tag.url }}"
+         class="skill-pill text-sm bg-slate-50 border border-slate-200 text-slate-700 rounded-full px-3.5 py-1">
+        {{ tag }} <span class="text-slate-400">({{ tag_articles|length }})</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

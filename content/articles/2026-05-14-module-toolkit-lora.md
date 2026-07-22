@@ -1,6 +1,7 @@
 Title: Fine-Tuning Six LoRAs for the Module Toolkit
 Date: 2026-05-14
 Slug: module-toolkit-lora
+Tags: agentic-ai, lora, bioinformatics
 Summary: How a hierarchical multi-agent pipeline and six task-specific LoRAs increased GenePattern module production roughly fivefold.
 
 The GenePattern AI Module Toolkit wraps arbitrary bioinformatics CLI tools as GenePattern modules automatically: point it at a repository, its docs, and some example data, and a pipeline of agents produces a working module.

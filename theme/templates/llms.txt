@@ -1,0 +1,14 @@
+# Thorin Tabor
+
+> Staff Software Engineer building agentic AI systems (RAG, MCP, multi-agent pipelines) for bioinformatics research at UC San Diego and the Broad Institute of MIT and Harvard. Open source maintainer of GenePattern and g2nb.
+
+## Pages
+
+- [Bio]({{ SITEURL }}/bio/): Full background, experience, projects, skills, and publications.
+- [Blog]({{ SITEURL }}/blog/): All posts, reverse chronological.
+
+## Posts
+
+{% for article in articles %}
+- [{{ article.title }}]({{ SITEURL }}/{{ article.url }}): {{ article.summary|striptags|trim }}
+{% endfor %}

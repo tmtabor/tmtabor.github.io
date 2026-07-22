@@ -4,10 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block title %}Thorin Tabor — Staff Software Engineer{% endblock %}</title>
+
+  <meta name="description" content="{% block meta_description %}Thorin Tabor — Staff Software Engineer building agentic AI systems (RAG, MCP, multi-agent pipelines). Open source maintainer of GenePattern and g2nb.{% endblock %}" />
+
+  <!-- Open Graph / Twitter card -->
+  <meta property="og:site_name" content="Thorin Tabor" />
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}" />
+  <link rel="canonical" href="{{ SITEURL }}/{% block canonical_path %}{% endblock %}" />
+  <meta property="og:url" content="{{ SITEURL }}/{{ self.canonical_path()|trim }}" />
+  <meta property="og:title" content="{% block og_title %}{{ self.title() }}{% endblock %}" />
+  <meta property="og:description" content="{{ self.meta_description()|trim|e }}" />
+  <meta property="og:image" content="{% block og_image %}{{ SITEURL }}/images/og-default.png{% endblock %}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ self.og_title()|trim|e }}" />
+  <meta name="twitter:description" content="{{ self.meta_description()|trim|e }}" />
+  <meta name="twitter:image" content="{{ self.og_image()|trim }}" />
+  {% block extra_meta %}{% endblock %}
+
+  <!-- Feeds -->
+  <link rel="alternate" type="application/atom+xml" title="Thorin Tabor — Atom Feed" href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" />
+  <link rel="alternate" type="application/rss+xml" title="Thorin Tabor — RSS Feed" href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{{ SITEURL }}/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ SITEURL }}/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ SITEURL }}/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ SITEURL }}/apple-touch-icon.png" />
+  <meta name="theme-color" content="#e9edf2" />
+
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments.css" />
   <style>
     body { font-family: 'Inter', system-ui, sans-serif; background-color: #e9edf2; }
     .font-slab { font-family: 'Roboto Slab', Georgia, serif; }
@@ -73,6 +104,28 @@
     .article-body a { color: #7f1d1d; text-decoration: none; }
     .article-body a:hover { text-decoration: underline; }
     .article-body h1, .article-body h2, .article-body h3 { font-family: 'Roboto Slab', Georgia, serif; }
+
+    /* Code blocks: fit the pygments.css output into the site's card aesthetic */
+    .article-body .highlight {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+    }
+    .article-body .highlight pre {
+      background: transparent;
+      margin: 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+    .article-body :not(pre) > code {
+      background: #f1f5f9;
+      color: #7f1d1d;
+      border-radius: 0.3rem;
+      padding: 0.15rem 0.4rem;
+      font-size: 0.85em;
+    }
   </style>
   {% block extra_head %}{% endblock %}
 </head>
@@ -109,15 +162,21 @@
       <div class="flex items-center gap-5">
         <a href="mailto:thorin@tmtabor.io"
            class="hover:text-red-900 transition-colors duration-200">thorin@tmtabor.io</a>
-        <a href="https://www.linkedin.com/in/thorin-tabor-99223627/" target="_blank" rel="noopener"
+        <a href="https://www.linkedin.com/in/thorin-tabor-99223627/" target="_blank" rel="me noopener"
            class="hover:text-red-900 transition-colors duration-200">LinkedIn</a>
-        <a href="https://bsky.app/profile/tmtabor.io" target="_blank" rel="noopener"
+        <a href="https://bsky.app/profile/tmtabor.io" target="_blank" rel="me noopener"
            class="hover:text-red-900 transition-colors duration-200">Bluesky</a>
-        <a href="https://github.com/tmtabor" target="_blank" rel="noopener"
+        <a href="https://github.com/tmtabor" target="_blank" rel="me noopener"
            class="hover:text-red-900 transition-colors duration-200">GitHub</a>
+        <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}"
+           class="hover:text-red-900 transition-colors duration-200">RSS</a>
       </div>
     </div>
   </footer>
+
+  <!-- Cloudflare Web Analytics -->
+  <!-- TODO: replace with the real beacon token from the Cloudflare dashboard (Analytics > Web Analytics > Add a site > "I'll add the JavaScript snippet myself") -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "REPLACE_WITH_YOUR_TOKEN"}'></script>
 
 </body>
 </html>

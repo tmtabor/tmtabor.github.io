@@ -1,6 +1,7 @@
 Title: g2nb: One Notebook, Four Bioinformatics Platforms
 Date: 2026-06-10
 Slug: g2nb-galaxy-globus
+Tags: open-source, bioinformatics
 Summary: g2nb extends GenePattern Notebook into a JupyterLab environment that also speaks Galaxy, Globus, and IGV.
 
 Most bioinformatics platforms are islands: your data lives in one system, your compute in another, your visualization tools in a third. g2nb is our attempt to make a single JupyterLab environment fluent in several of them at once — GenePattern, Galaxy, Globus, and IGV — without forcing researchers to learn four separate interfaces.

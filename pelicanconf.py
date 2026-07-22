@@ -1,4 +1,7 @@
+import json
 from datetime import datetime
+
+JINJA_FILTERS = {"tojson": lambda value: json.dumps(value).replace("</", "<\\/")}
 
 AUTHOR = "Thorin Tabor"
 SITENAME = "Thorin Tabor"
@@ -14,9 +17,22 @@ DEFAULT_LANG = "en"
 ARTICLE_PATHS = ["articles"]
 PAGE_PATHS = ["pages"]
 
-STATIC_PATHS = ["images", "extra/CNAME"]
+STATIC_PATHS = [
+    "images",
+    "extra/CNAME",
+    "extra/robots.txt",
+    "extra/favicon.ico",
+    "extra/favicon-16x16.png",
+    "extra/favicon-32x32.png",
+    "extra/apple-touch-icon.png",
+]
 EXTRA_PATH_METADATA = {
     "extra/CNAME": {"path": "CNAME"},
+    "extra/robots.txt": {"path": "robots.txt"},
+    "extra/favicon.ico": {"path": "favicon.ico"},
+    "extra/favicon-16x16.png": {"path": "favicon-16x16.png"},
+    "extra/favicon-32x32.png": {"path": "favicon-32x32.png"},
+    "extra/apple-touch-icon.png": {"path": "apple-touch-icon.png"},
 }
 
 # Routing: /blog/<slug>/ for posts, /blog/ for the full index, hand-built
@@ -24,13 +40,20 @@ EXTRA_PATH_METADATA = {
 ARTICLE_URL = "blog/{slug}/"
 ARTICLE_SAVE_AS = "blog/{slug}/index.html"
 
-DIRECT_TEMPLATES = ["archives"]
+TAG_URL = "tags/{slug}/"
+TAG_SAVE_AS = "tags/{slug}/index.html"
+TAGS_URL = "tags/"
+TAGS_SAVE_AS = "tags/index.html"
+
+DIRECT_TEMPLATES = ["archives", "tags"]
 ARCHIVES_URL = "blog/"
 ARCHIVES_SAVE_AS = "blog/index.html"
 
 TEMPLATE_PAGES = {
     "index.html": "index.html",
     "bio.html": "bio/index.html",
+    "sitemap.xml": "sitemap.xml",
+    "llms.txt": "llms.txt",
 }
 
 JINJA_GLOBALS = {
@@ -39,18 +62,28 @@ JINJA_GLOBALS = {
 
 DEFAULT_PAGINATION = False
 
-# Single-author, single-category site — no per-author/category/tag pages needed.
+# Single-author, single-category site — no per-author/category pages needed.
 AUTHOR_SAVE_AS = ""
 CATEGORY_SAVE_AS = ""
-TAG_SAVE_AS = ""
 AUTHORS_SAVE_AS = ""
 CATEGORIES_SAVE_AS = ""
-TAGS_SAVE_AS = ""
 
-FEED_ALL_ATOM = None
+FEED_ALL_ATOM = "feeds/all.atom.xml"
+FEED_ALL_RSS = "feeds/all.rss.xml"
+FEED_DOMAIN = SITEURL
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 DEFAULT_DATE_FORMAT = "%b %-d, %Y"
+
+MARKDOWN = {
+    "extension_configs": {
+        "markdown.extensions.codehilite": {"css_class": "highlight"},
+        "markdown.extensions.fenced_code": {},
+        "markdown.extensions.extra": {},
+        "markdown.extensions.meta": {},
+    },
+    "output_format": "html5",
+}
