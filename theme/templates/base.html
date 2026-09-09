@@ -113,6 +113,33 @@
     }
     .nav-bar-link:hover::after { width: 100%; }
 
+    /* Project status badge. Reuses the skill-pill palette rather than introducing
+       new colors: "Active" is the pill's hover state, "Retired" its resting state.
+       The dot adds shape difference so the distinction isn't carried by color alone. */
+    .proj-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      flex-shrink: 0;
+      white-space: nowrap;
+      font-size: 0.7rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border-radius: 9999px;
+      border: 1px solid;
+      padding: 0.3rem 0.625rem;
+    }
+    .proj-status::before {
+      content: '';
+      width: 0.375rem;
+      height: 0.375rem;
+      border-radius: 9999px;
+      background: currentColor;
+    }
+    .proj-status--active  { background: #fff1f2; border-color: #fecaca; color: #7f1d1d; }
+    .proj-status--retired { background: #f8fafc; border-color: #e2e8f0; color: #475569; }
+
     /* Pill hover */
     .skill-pill:hover {
       background-color: #fff1f2;
