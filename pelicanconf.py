@@ -40,7 +40,8 @@ EXTRA_PATH_METADATA = {
 }
 
 # Routing: /blog/<slug>/ for posts, /blog/ for the full index, hand-built
-# templates for / and /bio/ via TEMPLATE_PAGES.
+# templates for / and /resume/ via TEMPLATE_PAGES. /bio/ is the old URL for
+# /resume/ and forwards to it (GitHub Pages cannot serve HTTP redirects).
 ARTICLE_URL = "blog/{slug}/"
 ARTICLE_SAVE_AS = "blog/{slug}/index.html"
 
@@ -55,7 +56,8 @@ ARCHIVES_SAVE_AS = "blog/index.html"
 
 TEMPLATE_PAGES = {
     "index.html": "index.html",
-    "bio.html": "bio/index.html",
+    "resume.html": "resume/index.html",
+    "bio_redirect.html": "bio/index.html",
     "sitemap.xml": "sitemap.xml",
     "llms.txt": "llms.txt",
     "404.html": "404.html",

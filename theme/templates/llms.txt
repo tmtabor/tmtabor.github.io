@@ -4,7 +4,7 @@
 
 ## Pages
 
-- [Bio]({{ SITEURL }}/bio/): Full background, experience, projects, skills, and publications.
+- [Resume]({{ SITEURL }}/resume/): Full background, experience, projects, skills, and publications.
 - [Blog]({{ SITEURL }}/blog/): All posts, reverse chronological.
 
 ## Posts

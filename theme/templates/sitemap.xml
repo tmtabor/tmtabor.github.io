@@ -4,7 +4,7 @@
     <loc>{{ SITEURL }}/</loc>
   </url>
   <url>
-    <loc>{{ SITEURL }}/bio/</loc>
+    <loc>{{ SITEURL }}/resume/</loc>
   </url>
   <url>
     <loc>{{ SITEURL }}/blog/</loc>
