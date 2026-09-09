@@ -7,23 +7,130 @@
 {% include "partials/hero.html" %}
 
 <section id="recent-posts">
-  <h2 class="font-slab font-semibold text-2xl tracking-wide text-slate-900 mb-4">Recent Posts</h2>
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="font-slab font-semibold text-2xl tracking-wide text-slate-900">Recent Posts</h2>
+    <a href="{{ SITEURL }}/blog/" class="nav-link text-xs font-semibold text-red-900 uppercase tracking-widest">All Posts</a>
+  </div>
   <div id="posts-card" class="bento-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
     {% if articles %}
     <ol class="space-y-0">
-      {% for article in articles[:10] %}
+      {% for article in articles[:5] %}
       <li class="py-5 border-b border-slate-100 first:pt-0 last:border-0 last:pb-0">
-        <a href="{{ SITEURL }}/{{ article.url }}"
-           class="group text-[0.9375rem] font-medium text-slate-900 leading-snug hover:text-red-900 transition-colors duration-200">
-          {{ article.title }}
-        </a>
-        <p class="text-xs text-red-900 mt-1.5">{{ article.locale_date }}</p>
+        <h3 class="font-slab font-semibold text-xl text-slate-900 leading-snug mb-1">
+          <a href="{{ SITEURL }}/{{ article.url }}"
+             class="hover:text-red-900 transition-colors duration-200">
+            {{ article.title }}
+          </a>
+        </h3>
+        <p class="text-xs text-red-900">{{ article.locale_date }}</p>
       </li>
       {% endfor %}
     </ol>
     {% else %}
     <p class="text-[0.9375rem] text-slate-600">No posts yet — check back soon.</p>
     {% endif %}
+  </div>
+</section>
+
+<section id="projects">
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="font-slab font-semibold text-2xl tracking-wide text-slate-900">Projects</h2>
+    <a href="{{ SITEURL }}/projects/" class="nav-link text-xs font-semibold text-red-900 uppercase tracking-widest">All Projects</a>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+    <!-- GenePattern AI Module Toolkit -->
+    <div class="bento-card proj-card bg-white border border-slate-200 rounded-2xl p-8 flex flex-col">
+      <div class="flex-1">
+        <h3 class="font-slab font-semibold text-xl text-slate-900 mb-1">
+          <a href="https://github.com/genepattern/module-toolkit" target="_blank" rel="noopener"
+             class="group hover:text-red-900 transition-colors duration-200">
+            GenePattern AI Module Toolkit
+            <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+          </a>
+        </h3>
+        <p class="text-xs text-red-900 mb-3">University of California, San Diego &nbsp;&middot;&nbsp; 2025 – 2026</p>
+        <p class="text-[0.9rem] text-slate-700 leading-relaxed">
+          Hierarchical pipeline where a supervisor coordinates researcher, planner and six artifact agents to wrap bioinformatics tools as production modules. Took module production up roughly 500%.
+        </p>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-1.5">
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Agentic AI</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">LoRA</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Pydantic AI</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Python</span>
+      </div>
+    </div>
+
+    <!-- GenePattern Copilot -->
+    <div class="bento-card proj-card bg-white border border-slate-200 rounded-2xl p-8 flex flex-col">
+      <div class="flex-1">
+        <h3 class="font-slab font-semibold text-xl text-slate-900 mb-1">
+          <a href="https://github.com/genepattern/copilot" target="_blank" rel="noopener"
+             class="group hover:text-red-900 transition-colors duration-200">
+            GenePattern Copilot
+            <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+          </a>
+        </h3>
+        <p class="text-xs text-red-900 mb-3">University of California, San Diego &nbsp;&middot;&nbsp; 2025 – 2026</p>
+        <p class="text-[0.9rem] text-slate-700 leading-relaxed">
+          RAG assistant that can actually run GenePattern, not just describe it. An MCP server underneath lets it launch jobs, fetch results and explore analyses on a researcher's behalf.
+        </p>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-1.5">
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">RAG</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">MCP</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Pydantic AI</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">LangChain</span>
+      </div>
+    </div>
+
+    <!-- Agent Template -->
+    <div class="bento-card proj-card bg-white border border-slate-200 rounded-2xl p-8 flex flex-col">
+      <div class="flex-1">
+        <h3 class="font-slab font-semibold text-xl text-slate-900 mb-1">
+          <a href="https://github.com/tmtabor/agent-template" target="_blank" rel="noopener"
+             class="group hover:text-red-900 transition-colors duration-200">
+            Agent Template
+            <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+          </a>
+        </h3>
+        <p class="text-xs text-red-900 mb-3">Open Source &nbsp;&middot;&nbsp; 2026 – Present</p>
+        <p class="text-[0.9rem] text-slate-700 leading-relaxed">
+          Opinionated scaffolding for building agents: three interchangeable patterns, an eval suite spanning pass/fail and LLM-as-judge cases, cost guardrails, and unit tests that run without an API key.
+        </p>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-1.5">
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Agentic AI</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Pydantic AI</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Evals</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Python</span>
+      </div>
+    </div>
+
+    <!-- Content Agent -->
+    <div class="bento-card proj-card bg-white border border-slate-200 rounded-2xl p-8 flex flex-col">
+      <div class="flex-1">
+        <h3 class="font-slab font-semibold text-xl text-slate-900 mb-1">
+          <a href="https://github.com/tmtabor/content-agent" target="_blank" rel="noopener"
+             class="group hover:text-red-900 transition-colors duration-200">
+            Content Agent
+            <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+          </a>
+        </h3>
+        <p class="text-xs text-red-900 mb-3">Open Source &nbsp;&middot;&nbsp; 2026 – Present</p>
+        <p class="text-[0.9rem] text-slate-700 leading-relaxed">
+          Local web app that drafts on-brand posts and newsletters for several brands at once, each with its own voice and history, running entirely against a local model.
+        </p>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-1.5">
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Agentic AI</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">FastAPI</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">HTMX</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Ollama</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
