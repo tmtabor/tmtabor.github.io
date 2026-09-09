@@ -57,6 +57,7 @@ ARCHIVES_SAVE_AS = "blog/index.html"
 TEMPLATE_PAGES = {
     "index.html": "index.html",
     "resume.html": "resume/index.html",
+    "projects.html": "projects/index.html",
     "bio_redirect.html": "bio/index.html",
     "sitemap.xml": "sitemap.xml",
     "llms.txt": "llms.txt",

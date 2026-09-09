@@ -65,9 +65,14 @@
     /* Education */
     .edu-card:nth-child(1) { animation-delay: 0.10s; }
     .edu-card:nth-child(2) { animation-delay: 0.18s; }
-    /* Projects */
+    /* Projects. The Resume shows two; /projects/ shows many, so the stagger runs
+       to six and then flattens rather than trailing off into a slow reveal. */
     .proj-card:nth-child(1) { animation-delay: 0.10s; }
     .proj-card:nth-child(2) { animation-delay: 0.18s; }
+    .proj-card:nth-child(3) { animation-delay: 0.26s; }
+    .proj-card:nth-child(4) { animation-delay: 0.34s; }
+    .proj-card:nth-child(5) { animation-delay: 0.42s; }
+    .proj-card:nth-child(n+6) { animation-delay: 0.50s; }
     /* Skills / Publications */
     #skills-card { animation-delay: 0.10s; }
     #pubs-card   { animation-delay: 0.10s; }

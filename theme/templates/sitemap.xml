@@ -7,6 +7,9 @@
     <loc>{{ SITEURL }}/resume/</loc>
   </url>
   <url>
+    <loc>{{ SITEURL }}/projects/</loc>
+  </url>
+  <url>
     <loc>{{ SITEURL }}/blog/</loc>
   </url>
   <url>

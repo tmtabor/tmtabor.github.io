@@ -5,6 +5,7 @@
 ## Pages
 
 - [Resume]({{ SITEURL }}/resume/): Full background, experience, projects, skills, and publications.
+- [Projects]({{ SITEURL }}/projects/): Active and retired projects, with tech stack and context.
 - [Blog]({{ SITEURL }}/blog/): All posts, reverse chronological.
 
 ## Posts
