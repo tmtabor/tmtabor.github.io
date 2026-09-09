@@ -90,6 +90,24 @@
     }
     .nav-link:hover::after { width: 100%; }
 
+    /* Header nav links: taller tap targets (WCAG 2.2 target size), with the
+       underline pinned under the text rather than the padding box. */
+    .nav-bar-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.875rem 0;
+    }
+    .nav-bar-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0.75rem; left: 0;
+      width: 0; height: 1px;
+      background: #7f1d1d;
+      transition: width 0.25s ease;
+    }
+    .nav-bar-link:hover::after { width: 100%; }
+
     /* Pill hover */
     .skill-pill:hover {
       background-color: #fff1f2;
@@ -138,26 +156,27 @@
       <a href="{{ SITEURL }}/" class="font-slab font-semibold text-slate-900 tracking-wide text-sm hover:text-red-900 transition-colors duration-200">
         Thorin Tabor
       </a>
-      <!-- Nav links -->
-      <div class="hidden sm:flex items-center gap-6 text-[0.7rem] font-semibold text-slate-500 uppercase tracking-widest">
-        <a href="{{ SITEURL }}/bio/" class="nav-link hover:text-slate-800 transition-colors duration-200">Bio</a>
-        <a href="{{ SITEURL }}/blog/" class="nav-link hover:text-slate-800 transition-colors duration-200">Blog</a>
+      <!-- Nav links: always visible, including on mobile -->
+      <div class="flex items-center gap-5 sm:gap-6 text-[0.7rem] font-semibold text-slate-500 uppercase tracking-widest">
+        <a href="{{ SITEURL }}/bio/" class="nav-bar-link hover:text-slate-800 transition-colors duration-200">Bio</a>
+        <a href="{{ SITEURL }}/blog/" class="nav-bar-link hover:text-slate-800 transition-colors duration-200">Blog</a>
       </div>
-      <!-- Social icons -->
-      <div class="flex items-center gap-3">
+      <!-- Social icons: hidden below sm, where they'd crowd out the nav links.
+           Still reachable in the footer on every page, and in the hero on / and /bio/. -->
+      <div class="hidden sm:flex items-center gap-3">
         {% include "partials/social_icons.html" %}
       </div>
     </div>
   </nav>
 
   <!-- ===================== MAIN ===================== -->
-  <main id="top" class="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-6">
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-6">
     {% block content %}{% endblock %}
   </main>
 
   <!-- ===================== FOOTER ===================== -->
   <footer class="max-w-5xl mx-auto px-4 sm:px-6 py-10 mt-4 border-t border-slate-200">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
       <span class="font-slab tracking-wide">&copy; {{ current_year }} Thorin Tabor</span>
       <div class="flex items-center gap-5">
         <a href="mailto:thorin@tmtabor.io"

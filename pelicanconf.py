@@ -5,6 +5,10 @@ JINJA_FILTERS = {"tojson": lambda value: json.dumps(value).replace("</", "<\\/")
 
 AUTHOR = "Thorin Tabor"
 SITENAME = "Thorin Tabor"
+SITESUBTITLE = (
+    "Staff Software Engineer building agentic AI systems — RAG, MCP and "
+    "multi-agent pipelines. Notes on making agents reliable."
+)
 SITEURL = ""
 
 PATH = "content"
@@ -54,6 +58,7 @@ TEMPLATE_PAGES = {
     "bio.html": "bio/index.html",
     "sitemap.xml": "sitemap.xml",
     "llms.txt": "llms.txt",
+    "404.html": "404.html",
 }
 
 JINJA_GLOBALS = {
