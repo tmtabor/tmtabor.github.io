@@ -3,6 +3,10 @@
 {% block canonical_path %}{{ article.url }}{% endblock %}
 {% block meta_description %}{{ article.summary|striptags|trim }}{% endblock %}
 {% block og_type %}article{% endblock %}
+{#- Per-post share image. Set `Image:` in the post's metadata, either a path
+    relative to the site root (images/og-my-post.png) or a full URL. Falls back
+    to og-default.png. Must be 1200x630 -- base.html declares those dimensions. -#}
+{% block og_image %}{% if article.image %}{% if '://' in article.image %}{{ article.image }}{% else %}{{ SITEURL }}/{{ article.image.lstrip('/') }}{% endif %}{% else %}{{ SITEURL }}/images/og-default.png{% endif %}{% endblock %}
 {% block extra_meta %}
 <meta property="article:published_time" content="{{ article.date.isoformat() }}" />
 <script type="application/ld+json">
@@ -13,6 +17,7 @@
   "datePublished": "{{ article.date.isoformat() }}",
   "url": "{{ SITEURL }}/{{ article.url }}",
   "description": {{ article.summary|striptags|trim|tojson }},
+  "image": {{ self.og_image()|trim|tojson }},
   "author": {
     "@type": "Person",
     "name": "Thorin Tabor",
