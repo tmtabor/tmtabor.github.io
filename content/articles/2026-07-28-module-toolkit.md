@@ -2,6 +2,7 @@ Title: Building the GenePattern Module Toolkit
 Date: 2026-07-28
 Slug: genepattern-module-toolkit
 Tags: genepattern, agentic-ai, open-source, pydantic-ai
+Image: images/og-genepattern-module-toolkit.png
 Summary: How a hierarchical multi-agent pipeline increased GenePattern module production fivefold.
 
 It's five o'clock on a Wednesday, and I have twelve tabs open across two monitors. Four of them are Google searches. One is a Biostars thread from a few months back that I've had bookmarked for three days now, because it's the closest thing anyone has written to what I'm trying to understand. Another is a conversation with an AI assistant that's now twenty messages deep, patiently walking me through spatial transcriptomic gradients like a TA answering the same question for the fifth time this semester.

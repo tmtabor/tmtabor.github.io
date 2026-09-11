@@ -38,3 +38,13 @@ full URL; without it, posts fall back to `images/og-default.png`.
 **Share images must be 1200x630** — `base.html` declares those dimensions to
 crawlers, so an image of another size will be described incorrectly. Put them
 in `content/images/`, which is copied to `/images/` at build time.
+
+To generate one in the site's style, point the script at the post:
+
+```sh
+python3 scripts/make_og_image.py content/articles/2026-07-28-module-toolkit.md
+```
+
+It reads the post's Title, Summary and Date, writes
+`content/images/og-<slug>.png`, and prints the `Image:` line to paste back in.
+Fonts are fetched once into `.cache/fonts/`.
