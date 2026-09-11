@@ -52,6 +52,28 @@ underlines, project status badges, article body styles — lives in the inline
 `<style>` block in `theme/templates/base.html` and needs no regeneration.
 Pinned Tailwind version: `VERSION` in `scripts/build_css.py`.
 
+### Fonts
+
+Inter and Roboto Slab are **self-hosted** from `theme/static/fonts/` rather
+than loaded from Google Fonts, so the site makes no third-party requests for
+them. The `@font-face` rules live in `scripts/tailwind/input.css` and compile
+into `main.css`; `base.html` preloads the two latin subsets.
+
+These are variable fonts — one file per family per subset covers every weight,
+so the whole site costs two font requests. The `latin-ext` files are committed
+but only downloaded if a page actually contains those characters, which
+`unicode-range` decides; they are insurance for names with Central or Eastern
+European diacritics and cost nothing until used.
+
+To refresh or change weights:
+
+```sh
+python3 scripts/fetch_fonts.py   # re-download the subsets
+python3 scripts/build_css.py     # recompile main.css
+```
+
+Licenses ship alongside the files: Inter is OFL-1.1, Roboto Slab Apache-2.0.
+
 ## Writing a post
 
 Posts live in `content/articles/` as Markdown with a metadata header:
