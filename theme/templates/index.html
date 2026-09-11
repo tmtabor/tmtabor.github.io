@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Thorin Tabor — Staff Software Engineer{% endblock %}
 {% block canonical_path %}{% endblock %}
-{% block meta_description %}Open source developer on GenePattern and g2nb. Staff Software Engineer building agentic AI systems — RAG, MCP, and multi-agent pipelines for bioinformatics research.{% endblock %}
+{% block meta_description %}Open source developer on GenePattern and g2nb. Staff Software Engineer building agentic AI systems — RAG, MCP and multi-agent pipelines for bioinformatics research.{% endblock %}
 {% block content %}
 
 {% include "partials/hero.html" %}
@@ -30,6 +30,9 @@
           </a>
         </h3>
         <p class="text-xs text-red-900">{{ article.locale_date }}</p>
+        {% if article.summary %}
+        <div class="mt-2 text-[0.9rem] text-slate-700 leading-relaxed">{{ article.summary }}</div>
+        {% endif %}
       </li>
       {% endfor %}
     </ol>
@@ -56,13 +59,13 @@
             <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
           </a>
         </h3>
-        <p class="text-xs text-red-900 mb-3">University of California, San Diego &nbsp;&middot;&nbsp; 2025 – 2026</p>
+        <p class="text-xs text-red-900 mb-3">University of California, San Diego &nbsp;&middot;&nbsp; Sep 2025 – Jun 2026</p>
         <p class="text-[0.9rem] text-slate-700 leading-relaxed">
-          Hierarchical pipeline where a supervisor coordinates researcher, planner and six artifact agents to wrap bioinformatics tools as production modules. Took module production up roughly 500%.
+          Hierarchical pipeline that wraps bioinformatics tools as production modules. A supervisor coordinates researcher, planner and six artifact agents, linting each artifact and rewinding to whichever agent introduced a failure.
         </p>
       </div>
       <div class="mt-5 flex flex-wrap gap-1.5">
-        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Agentic AI</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Multi-Agent</span>
         <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">LoRA</span>
         <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Pydantic AI</span>
         <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Python</span>
@@ -79,16 +82,16 @@
             <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
           </a>
         </h3>
-        <p class="text-xs text-red-900 mb-3">University of California, San Diego &nbsp;&middot;&nbsp; 2025 – 2026</p>
+        <p class="text-xs text-red-900 mb-3">University of California, San Diego &nbsp;&middot;&nbsp; Apr 2025 – Jun 2026</p>
         <p class="text-[0.9rem] text-slate-700 leading-relaxed">
-          RAG assistant that can actually run GenePattern, not just describe it. An MCP server underneath lets it launch jobs, fetch results and explore analyses on a researcher's behalf.
+          RAG-based agentic assistant grounded in documentation and help forum. Uses an MCP server to run GenePattern jobs and retrieve results on the user’s behalf. Thumbs-up and thumbs-down ratings feed its evaluation dataset.
         </p>
       </div>
       <div class="mt-5 flex flex-wrap gap-1.5">
         <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">RAG</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Vector Databases</span>
         <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">MCP</span>
         <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Pydantic AI</span>
-        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">LangChain</span>
       </div>
     </div>
 
@@ -102,15 +105,15 @@
             <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
           </a>
         </h3>
-        <p class="text-xs text-red-900 mb-3">Open Source &nbsp;&middot;&nbsp; 2026 – Present</p>
+        <p class="text-xs text-red-900 mb-3">Open Source &nbsp;&middot;&nbsp; Jul 2026 – Present</p>
         <p class="text-[0.9rem] text-slate-700 leading-relaxed">
-          Opinionated scaffolding for building agents: three interchangeable patterns, an eval suite spanning pass/fail and LLM-as-judge cases, cost guardrails, and unit tests that run without an API key.
+          Opinionated scaffolding for building AI agents: three interchangeable patterns, Logfire tracing, per-run token caps and an eval suite spanning both pass/fail and LLM-as-judge cases.
         </p>
       </div>
       <div class="mt-5 flex flex-wrap gap-1.5">
-        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Agentic AI</span>
-        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Pydantic AI</span>
         <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Evals</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Logfire</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Pydantic AI</span>
         <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Python</span>
       </div>
     </div>
@@ -125,16 +128,16 @@
             <span class="inline-block align-middle ml-0.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
           </a>
         </h3>
-        <p class="text-xs text-red-900 mb-3">Open Source &nbsp;&middot;&nbsp; 2026 – Present</p>
+        <p class="text-xs text-red-900 mb-3">Open Source &nbsp;&middot;&nbsp; Aug 2026 – Present</p>
         <p class="text-[0.9rem] text-slate-700 leading-relaxed">
-          Local web app that drafts on-brand posts and newsletters for several brands at once, each with its own voice and history, running entirely against a local model.
+          Local agent with a web interface that drafts on-brand posts and newsletters for multiple brands, each with its own voice and content history. Inference runs via a self-hosted Ollama model.
         </p>
       </div>
       <div class="mt-5 flex flex-wrap gap-1.5">
-        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Agentic AI</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Ollama</span>
         <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">FastAPI</span>
         <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">HTMX</span>
-        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Ollama</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">SQLite</span>
       </div>
     </div>
 
