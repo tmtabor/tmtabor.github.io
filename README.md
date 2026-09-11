@@ -18,6 +18,40 @@ uv run pelican content -o output -s publishconf.py
 
 Deployment to GitHub Pages happens automatically via `.github/workflows/pages.yml` on push to `main`.
 
+## Styles
+
+Tailwind is compiled ahead of time into `theme/static/css/main.css`, which is
+**committed** — the deploy workflow has no frontend build step and cannot
+generate it. Adding a utility class to a template is therefore only half the
+change: regenerate and commit the CSS too, or the class will silently do
+nothing in production.
+
+```sh
+python3 scripts/build_css.py
+```
+
+The script fetches the Tailwind standalone CLI once into `.cache/tailwind/`
+(gitignored) and checksum-verifies it against the release's `sha256sums.txt`.
+It is a single self-contained binary — no Node, no npm, no `node_modules`.
+
+It builds the site to `.cache/css-scan/` first so the CLI scans generated HTML
+as well as templates, catching classes that only Markdown or Pelican produce.
+
+Two other modes:
+
+```sh
+python3 scripts/build_css.py --watch   # rebuild as you edit templates
+python3 scripts/build_css.py --check   # exit non-zero if main.css is stale
+```
+
+`--watch` is worth running in a second terminal alongside the dev server when
+doing design work, so new classes appear without a manual regen.
+
+Custom CSS that Tailwind does not generate — the card animations, nav
+underlines, project status badges, article body styles — lives in the inline
+`<style>` block in `theme/templates/base.html` and needs no regeneration.
+Pinned Tailwind version: `VERSION` in `scripts/build_css.py`.
+
 ## Writing a post
 
 Posts live in `content/articles/` as Markdown with a metadata header:
