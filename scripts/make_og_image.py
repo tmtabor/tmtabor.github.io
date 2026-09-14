@@ -89,21 +89,27 @@ def main(post_path):
     d.rounded_rectangle([40, 40, W - 40, H - 40], radius=24, fill=CARD, outline=BORDER, width=1)
 
     f_kicker = load("Inter.ttf", 20, 600)
-    f_title = load("RobotoSlab.ttf", 62, 700)
     f_sum = load("Inter.ttf", 26, 400)
     f_foot = load("Inter.ttf", 20, 500)
     maxw = W - 2 * PAD_X
+
+    # Three lines is all the card has room for above the summary, so a long
+    # headline-style title steps down a size rather than taking a fourth.
+    for size in (62, 56, 50, 46):
+        f_title = load("RobotoSlab.ttf", size, 700)
+        title_lines = wrap(d, title, f_title, maxw)
+        if len(title_lines) <= 3:
+            break
+    else:
+        sys.exit(f"title still wraps to {len(title_lines)} lines at {size}px; shorten it")
 
     y = TOP
     tracked(d, (PAD_X, y), "THORIN TABOR", f_kicker, RED900, 3.2)
     y += 60
 
-    title_lines = wrap(d, title, f_title, maxw)
-    if len(title_lines) > 3:
-        sys.exit(f"title wraps to {len(title_lines)} lines; shorten it or drop the title size")
     for line in title_lines:
         d.text((PAD_X, y), line, font=f_title, fill=SLATE900)
-        y += 72
+        y += round(size * 1.16)
     y += 16
 
     for line in wrap(d, summary, f_sum, maxw)[:3]:

@@ -1,4 +1,4 @@
-Title: Building the GenePattern Module Toolkit
+Title: Orchestrator, planner, six specialists: a multi-agent pipeline that survived production
 Date: 2026-07-28
 Slug: genepattern-module-toolkit
 Tags: genepattern, agentic-ai, open-source, pydantic-ai

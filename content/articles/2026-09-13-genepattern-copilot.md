@@ -1,9 +1,9 @@
-Title: Building GenePattern Copilot
+Title: A hallucinated module, a backfiring RAG pipeline and the MCP server that fixed it
 Date: 2026-09-13
 Slug: genepattern-copilot
 Tags: genepattern, agentic-ai, rag, mcp, pydantic-ai
 Image: images/og-genepattern-copilot.png
-Summary: A hallucinated module in a live demo, and the eval suite, chunking rewrite and MCP server that came out of it.
+Summary: How an eval suite exposed a RAG pipeline that hurt GenePattern Copilot more than it helped, and what finally fixed it.
 
 It’s a surprisingly humid day for San Diego. We’re running a workshop, teaching [GenePattern](https://www.genepattern.org/) to a dozen medical students, and we’re about to demo something in public for the first time: GenePattern Copilot, our first generative AI offering. Sweat drips. What could go wrong.
 
@@ -13,7 +13,7 @@ It’s a surprisingly humid day for San Diego. We’re running a workshop, teach
   It’s sitting right there on the screen in the list the assistant just generated. And I know it’s a hallucination.
 </blockquote>
 
-One of the students types an innocent question into the chat window: What GenePattern modules are available? The answer comes back, and most of it is exactly what you’d expect: Gene Set Enrichment Analysis, HierarchicalClustering, PCA. The usual suspects. Then he says something nice about the platform. He’s glad to see we offer scPerturb, a toolkit for single-cell perturbation analysis.
+One of the students types an innocent question into the chat window: *What GenePattern modules are available?* The answer comes back, and most of it is exactly what you’d expect: Gene Set Enrichment Analysis, Hierarchical Clustering, PCA. The usual suspects. Then he says something nice about the platform. He’s glad to see we offer [scPerturb](https://projects.sanderlab.org/scperturb/), a toolkit for single-cell perturbation analysis.
 
 I cringe. It’s sitting right there on the screen in the list the assistant just generated. And I know it’s a hallucination.
 
