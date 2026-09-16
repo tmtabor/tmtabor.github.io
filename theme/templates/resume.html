@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Thorin Tabor — Resume{% endblock %}
 {% block canonical_path %}resume/{% endblock %}
-{% block meta_description %}Thorin Tabor's background: Staff Software Engineer at UC San Diego and the Broad Institute, building agentic AI systems for bioinformatics research. Experience, projects and publications.{% endblock %}
+{% block meta_description %}Thorin Tabor's background: Staff Software Engineer, AI at the Jacobs Center for Health Innovation, previously UC San Diego and the Broad Institute. Experience, projects and publications.{% endblock %}
 {% block extra_meta %}
 <script type="application/ld+json">
 {
@@ -10,10 +10,14 @@
   "name": "Thorin Tabor",
   "url": "{{ SITEURL }}/resume/",
   "image": "{{ SITEURL }}/images/jupytercon.jpg",
-  "jobTitle": "Staff Software Engineer",
+  "jobTitle": "Staff Software Engineer, AI",
   "worksFor": {
     "@type": "Organization",
-    "name": "University of California, San Diego"
+    "name": "Jacobs Center for Health Innovation",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "UC San Diego Health"
+    }
   },
   "alumniOf": {
     "@type": "CollegeOrUniversity",
@@ -35,6 +39,26 @@
 <section id="experience">
   <h2 class="font-slab font-semibold text-2xl tracking-wide text-slate-900 mb-4">Experience</h2>
   <div class="space-y-4">
+
+    <!-- Jacobs Center for Health Innovation -->
+    <div class="bento-card exp-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
+      <p class="text-sm font-bold text-red-900 uppercase tracking-widest mb-0.5">
+        Jacobs Center for Health Innovation
+      </p>
+      <p class="text-xs text-red-900 mb-4">Sep 2026 &ndash; Present &nbsp;&middot;&nbsp; La Jolla, CA</p>
+      <h3 class="font-slab font-semibold text-xl text-slate-900 mb-4">Staff Software Engineer, AI</h3>
+      <ul class="space-y-3 text-[0.9rem] text-slate-700 leading-relaxed">
+        <li class="pl-4 border-l-2 border-slate-100">Building cloud-native applications that bring applied AI and intelligent automation into production across UC San Diego Health.</li>
+        <li class="pl-4 border-l-2 border-slate-100">Partnering with data science and automation teams to operationalize models and integrate across EHR platforms, cloud services and enterprise data environments.</li>
+      </ul>
+      <div class="mt-5 flex flex-wrap gap-1.5">
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Agentic AI</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">AWS</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">Python</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">TypeScript</span>
+        <span class="skill-pill text-xs bg-slate-50 border border-slate-200 text-slate-600 rounded-full px-2.5 py-0.5 cursor-default">OAuth2</span>
+      </div>
+    </div>
 
     <!-- UCSD -->
     <div class="bento-card exp-card bg-white border border-slate-200 rounded-2xl p-8 sm:p-10">
